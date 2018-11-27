@@ -29,7 +29,11 @@ namespace PDT
             bundles.Add(new ScriptBundle("~/bundles/dx").Include(
                       "~/Scripts/dx.web.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/ui").Include(
+            bundles.Add(new StyleBundle("~/Content/DevExtreme").Include("~/Content/dx.common.css")
+                .Include("~/Content/dx.light.css"));
+
+
+           bundles.Add(new ScriptBundle("~/bundles/ui").Include(
                       "~/Scripts/jquery-ui-{version}.js"));
         }
     }

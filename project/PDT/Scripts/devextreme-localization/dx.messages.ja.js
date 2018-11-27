@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.ja.js)
-* Version: 18.2.3
-* Build date: Wed Nov 07 2018
+* Version: 17.2.11
+* Build date: Fri Oct 26 2018
 *
 * Copyright (c) 2012 - 2018 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -78,13 +78,10 @@
             "dxFileUploader-uploaded": "アップロード済み",
             "dxFileUploader-readyToUpload": "アップロードの準備中",
             "dxFileUploader-uploadFailedMessage": "アップロードに失敗しました",
-            "dxFileUploader-invalidFileExtension": "このファイルの種類を使用できません",
-            "dxFileUploader-invalidMaxFileSize": "ファイルが大きすぎます",
-            "dxFileUploader-invalidMinFileSize": "ファイルが小さすぎます",
             "dxRangeSlider-ariaFrom": "から",
             "dxRangeSlider-ariaTill": "まで",
-            "dxSwitch-switchedOnText": "オン",
-            "dxSwitch-switchedOffText": "オフ",
+            "dxSwitch-onText": "オン",
+            "dxSwitch-offText": "オフ",
             "dxForm-optionalMark": "任意",
             "dxForm-requiredMessage": "{0} は必須フィールドです",
             "dxNumberBox-invalidValueMessage": "数値を指定してください。",
@@ -160,10 +157,6 @@
             "dxDataGrid-ariaSearchInGrid": "データ グリッド内で検索",
             "dxDataGrid-ariaSelectAll": "すべてを選択",
             "dxDataGrid-ariaSelectRow": "行の選択",
-            "dxDataGrid-filterBuilderPopupTitle": "フィルター ビルダー",
-            "dxDataGrid-filterPanelCreateFilter": "フィルターの作成",
-            "dxDataGrid-filterPanelClearFilter": "クリア",
-            "dxDataGrid-filterPanelFilterEnabledHint": "フィルターの有効化",
             "dxTreeList-ariaTreeList": "ツリー リスト",
             "dxTreeList-editingAddRowToNode": "追加",
             "dxPager-infoText": "ページ {0} / {1} ({2} アイテム)",
@@ -257,23 +250,7 @@
             "dxFilterBuilder-filterOperationNotContains": "指定の値を含まない",
             "dxFilterBuilder-filterOperationEndsWith": "指定の値で終わる",
             "dxFilterBuilder-filterOperationIsBlank": "空白である",
-            "dxFilterBuilder-filterOperationIsNotBlank": "空白ではない",
-            "dxFilterBuilder-filterOperationBetween": "～から～の間",
-            "dxFilterBuilder-filterOperationAnyOf": "どちらかを含む",
-            "dxFilterBuilder-filterOperationNoneOf": "すべて含まない",
-            "dxHtmlEditor-dialogColorCaption": "フォントの色を変更",
-            "dxHtmlEditor-dialogBackgroundCaption": "背景色を変更",
-            "dxHtmlEditor-dialogLinkCaption": "リンクを追加",
-            "dxHtmlEditor-dialogLinkUrlField": "URL",
-            "dxHtmlEditor-dialogLinkTextField": "テキスト",
-            "dxHtmlEditor-dialogLinkTargetField": "リンクを新しいウィンドウで開く",
-            "dxHtmlEditor-dialogImageCaption": "画像の追加",
-            "dxHtmlEditor-dialogImageUrlField": "URL",
-            "dxHtmlEditor-dialogImageAltField": "代替テキスト",
-            "dxHtmlEditor-dialogImageWidthField": "幅 (px)",
-            "dxHtmlEditor-dialogImageHeightField": "高さ (px)",
-            "dxHtmlEditor-heading": "見出し",
-            "dxHtmlEditor-normalText": "標準テキスト"
+            "dxFilterBuilder-filterOperationIsNotBlank": "空白ではない"
         }
     })
 });

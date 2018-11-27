@@ -18,16 +18,7 @@ namespace PDT.Controllers
         public string getPrimaryRoads = @"with village as (SELECT NAME, way FROM planet_osm_polygon  WHERE admin_level = '8'),
                                             roads as (select ST_Multi(ST_LineMerge(St_Collect(way))) as way from planet_osm_roads where highway like 'motorway')
                                         select ST_ASGeoJSON(ST_TRANSFORM(village.way,4326)) as village_polygon, ST_ASGeoJSON(ST_TRANSFORM(roads.way,4326)) as road_line from village inner join roads ON ST_INTERSECTS(roads.way, village.way)";
-
-        public string getRangeFromFiit = @"with fiit_center as (select operator as name, ST_BUFFER(ST_Centroid(way),1000) as range from planet_osm_polygon
-		                                     where building = 'university' and operator like 'Slovenská technická univerzita v Bratislave'), 
-                                        cafe as (select name, way from planet_osm_point where amenity like 'cafe' or amenity like 'bar' or amenity like 'restaurant')
-
-                                        select cafe.name, ST_ASGeoJSON(ST_TRANSFORM(cafe.way, 4326)), false as main_value from fiit_center join cafe on ST_Contains(fiit_center.range, cafe.way)
-                                       
-                                        union
-                                        select name, ST_ASGeoJSON(ST_TRANSFORM(ST_Centroid(range), 4326)), true as main_value from fiit_center"; //fiit nema meno, iba operatora
-        public string GetData()
+        public string GetMotorway()
         {
             using (var connection = new NpgsqlConnection(connString))
             {
@@ -70,8 +61,17 @@ namespace PDT.Controllers
         }
     }
 
-        public string GetRangeFromFiit()
+        public string GetRangeFromFiit(int range)
         {
+            string getRangeFromFiit = $@"with fiit_center as (select operator as name, ST_BUFFER(ST_Centroid(way),{range}) as range from planet_osm_polygon
+		                                     where building = 'university' and operator like 'Slovenská technická univerzita v Bratislave'), 
+                                        cafe as (select name, way from planet_osm_point where amenity like 'cafe' or amenity like 'bar' or amenity like 'restaurant')
+
+                                        select cafe.name, ST_ASGeoJSON(ST_TRANSFORM(cafe.way, 4326)), false as main_value from fiit_center join cafe on ST_Contains(fiit_center.range, cafe.way)
+                                       
+                                        union
+                                        select name, ST_ASGeoJSON(ST_TRANSFORM(ST_Centroid(range), 4326)), true as main_value from fiit_center"; //fiit nema meno, iba operatora
+
             using (var connection = new NpgsqlConnection(connString))
             {
                 try
@@ -108,44 +108,7 @@ namespace PDT.Controllers
             }
         }
 
-        //public string GetDepos()
-        //{
-        //    using (var connection = new NpgsqlConnection(connString))
-        //    {
-        //        try
-        //        {
-        //            connection.Open();
-
-        //            DataTable data = new DataTable();
-        //            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(getAeroStations, connection);
-        //            adapter.Fill(data);
-
-        //            List<String> list = new List<String>();
-
-        //            List<Feature> features = new List<Feature>();
-        //            Polygon station;
-
-
-        //            foreach (DataRow dr in data.Rows)
-        //            {
-        //                station = JsonConvert.DeserializeObject<Polygon>(dr[0].ToString());
-        //                features.Add(new Feature(station));
-        //            }
-
-
-        //            FeatureCollection featureCollection = new FeatureCollection(features);
-
-
-        //            return JsonConvert.SerializeObject(featureCollection);
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            return null;
-        //        }
-        //    }
-        //}
-
-        public object GetSomething(string village)
+        public object GetVillage(string village)
         {
             string getVillage = $@"with village as (SELECT NAME, way FROM planet_osm_polygon WHERE cast(admin_level as decimal(9,2)) between 6 and 9 and name like '{village}') 
                             select ST_ASGeoJSON(ST_TRANSFORM(way,4326)) as polygon, ST_ASGeoJSON(ST_TRANSFORM(ST_Centroid(way), 4326)) as center, ST_Area(ST_TRANSFORM(way, 4326)::geography) as area from village ";

@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.de.js)
-* Version: 18.2.3
-* Build date: Wed Nov 07 2018
+* Version: 17.2.11
+* Build date: Fri Oct 26 2018
 *
 * Copyright (c) 2012 - 2018 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -78,13 +78,10 @@
             "dxFileUploader-uploaded": "Hochgeladen",
             "dxFileUploader-readyToUpload": "Bereit zum hochladen",
             "dxFileUploader-uploadFailedMessage": "Fehler beim hochladen",
-            "dxFileUploader-invalidFileExtension": "Unzulässiger Dateityp",
-            "dxFileUploader-invalidMaxFileSize": "Datei ist zu groß",
-            "dxFileUploader-invalidMinFileSize": "Datei ist zu klein",
             "dxRangeSlider-ariaFrom": "Von",
             "dxRangeSlider-ariaTill": "Bis",
-            "dxSwitch-switchedOnText": "EIN",
-            "dxSwitch-switchedOffText": "AUS",
+            "dxSwitch-onText": "EIN",
+            "dxSwitch-offText": "AUS",
             "dxForm-optionalMark": "optional",
             "dxForm-requiredMessage": "{0} ist ein Pflichtfeld",
             "dxNumberBox-invalidValueMessage": "Der Wert muss eine Zahl sein",
@@ -160,10 +157,6 @@
             "dxDataGrid-ariaSearchInGrid": "Suchen in der Datentabelle",
             "dxDataGrid-ariaSelectAll": "Alle auswählen",
             "dxDataGrid-ariaSelectRow": "Zeile auswählen",
-            "dxDataGrid-filterBuilderPopupTitle": "Filter-Generator",
-            "dxDataGrid-filterPanelCreateFilter": "Filter erzeugen",
-            "dxDataGrid-filterPanelClearFilter": "Zurücksetzen",
-            "dxDataGrid-filterPanelFilterEnabledHint": "Filter aktivieren",
             "dxTreeList-ariaTreeList": "Strukturliste",
             "dxTreeList-editingAddRowToNode": "Hinzufügen",
             "dxPager-infoText": "Seite {0} von {1} ({2} Elemente)",
@@ -257,23 +250,7 @@
             "dxFilterBuilder-filterOperationNotContains": "Enthält nicht",
             "dxFilterBuilder-filterOperationEndsWith": "Endet mit",
             "dxFilterBuilder-filterOperationIsBlank": "Ist leer",
-            "dxFilterBuilder-filterOperationIsNotBlank": "Ist nicht leer",
-            "dxFilterBuilder-filterOperationBetween": "Zwischen",
-            "dxFilterBuilder-filterOperationAnyOf": "Ist enthalten in",
-            "dxFilterBuilder-filterOperationNoneOf": "Ist nicht enthalten in",
-            "dxHtmlEditor-dialogColorCaption": "Schriftfarbe ändern",
-            "dxHtmlEditor-dialogBackgroundCaption": "Hintergrundfarbe ändern",
-            "dxHtmlEditor-dialogLinkCaption": "Link hinzufügen",
-            "dxHtmlEditor-dialogLinkUrlField": "URL",
-            "dxHtmlEditor-dialogLinkTextField": "Text",
-            "dxHtmlEditor-dialogLinkTargetField": "Link in neuem Fenster öffnen",
-            "dxHtmlEditor-dialogImageCaption": "Bild hinzufügen",
-            "dxHtmlEditor-dialogImageUrlField": "URL",
-            "dxHtmlEditor-dialogImageAltField": "Alternativer Text",
-            "dxHtmlEditor-dialogImageWidthField": "Breite (px)",
-            "dxHtmlEditor-dialogImageHeightField": "Bildhöhe (px)",
-            "dxHtmlEditor-heading": "Überschrift",
-            "dxHtmlEditor-normalText": "Normaler Text"
+            "dxFilterBuilder-filterOperationIsNotBlank": "Ist nicht leer"
         }
     })
 });

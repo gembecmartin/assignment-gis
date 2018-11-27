@@ -32,8 +32,8 @@ textarea {
 }
 
 #controlPanel {
-    width: 600px;
-    height: 75px;
+    width: 650px;
+    height: 90px;
     position: absolute;
     top: 0;
     z-index: 10;
@@ -49,8 +49,12 @@ textarea {
     height: 25px;
 }
 
+#radiusPicker {
+    margin: 0 30px;
+}
+
 #control1 {
-    margin: 0 30px ;
+    margin: 0 30px;
     z-index: 15;
     width: 120px;
     height: 25px;

@@ -11,27 +11,43 @@
         <button id="control3" onclick="control3Clicked()">Find Village</button>
     </div>
     <button id="control1" style="display: inline-block" onclick="control1Clicked()">Find motorway</button>
-    <button id="control2" style="display: inline-block" onclick="control2Clicked()">Find drinks near FIIT</button>
-
+    <div style="display: inline-block; margin: 10px 0 10px 20px;">
+        <div id="radiusPicker"></div>
+        <button id="control2" onclick="control2Clicked()">Find drinks near FIIT</button>
+    </div>
+    @*<button id="control2" style="display: inline-block" onclick="control2Clicked()">Find drinks near FIIT</button>*@
+    
 </div>
 
 <script>
     var villageName = "";
     var markers = [];
-
-    mapboxgl.accessToken = 'pk.eyJ1Ijoid2hpdGV0aWdlciIsImEiOiJjam9oZWRraHQwbXdsM3BtdWRmbTZkcHZlIn0.IEoQNBskoauIuAqjSRDqmg';
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/outdoors-v9',
-        center: [19.6, 48.618261],
-        zoom: 7.5
-    });
+    var radius = [500, 1000, 2000];
+    var pickedRadius = 500;
+    var map;
 
     $(function () {
+        mapboxgl.accessToken = 'pk.eyJ1Ijoid2hpdGV0aWdlciIsImEiOiJjam9oZWRraHQwbXdsM3BtdWRmbTZkcHZlIn0.IEoQNBskoauIuAqjSRDqmg';
+        map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/outdoors-v9',
+            center: [19.6, 48.618261],
+            zoom: 7.5
+        });
+
         $("#textArea").dxTextBox({
-            placeholder: "Enter name of village here...",
+            placeholder: "Enter name of village...",
             onValueChanged: function (e) {
                 villageName = e.value;
+            }
+        });
+
+        $("#radiusPicker").dxSelectBox({
+            width: 150,
+            items: radius,
+            value: radius[0],
+            onValueChanged: function (e) {
+                pickedRadius = e.value;
             }
         });
 
@@ -63,7 +79,7 @@
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:61756/Services/Data.asmx/GetDepos",
+            url: "http://localhost:61756/Services/Data.asmx/GetMotorway",
             contentType: "application/json; charset=utf-8;",
             traditional: true,
             dataType: "json",
@@ -82,10 +98,13 @@
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:61756/Services/Data.asmx/GetAeroStations",
+            url: "http://localhost:61756/Services/Data.asmx/GetRangeFromFiit",
             contentType: "application/json; charset=utf-8;",
             traditional: true,
             dataType: "json",
+            data: JSON.stringify({
+                range: pickedRadius
+            }),
             success: function (msg) {
                 loadRangeFromFIIT(JSON.parse(msg.d));
             },
@@ -101,7 +120,7 @@
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:61756/Services/Data.asmx/GetSomething",
+            url: "http://localhost:61756/Services/Data.asmx/GetVillage",
             contentType: "application/json; charset=utf-8;",
             traditional: true,
             dataType: "json",

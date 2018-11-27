@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.ru.js)
-* Version: 18.2.3
-* Build date: Wed Nov 07 2018
+* Version: 17.2.11
+* Build date: Fri Oct 26 2018
 *
 * Copyright (c) 2012 - 2018 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -78,13 +78,10 @@
             "dxFileUploader-uploaded": "Загружено",
             "dxFileUploader-readyToUpload": "Готово к загрузке",
             "dxFileUploader-uploadFailedMessage": "Загрузка не удалась",
-            "dxFileUploader-invalidFileExtension": "Недопустимое расширение файла",
-            "dxFileUploader-invalidMaxFileSize": "Файл слишком большой",
-            "dxFileUploader-invalidMinFileSize": "Файл слишком маленький",
             "dxRangeSlider-ariaFrom": "От",
             "dxRangeSlider-ariaTill": "До",
-            "dxSwitch-switchedOnText": "ВКЛ",
-            "dxSwitch-switchedOffText": "ВЫКЛ",
+            "dxSwitch-onText": "ВКЛ",
+            "dxSwitch-offText": "ВЫКЛ",
             "dxForm-optionalMark": "необязательный",
             "dxForm-requiredMessage": " Поле {0} должно быть заполнено",
             "dxNumberBox-invalidValueMessage": "Значение должно быть числом",
@@ -160,10 +157,6 @@
             "dxDataGrid-ariaSearchInGrid": "Искать в таблице данных",
             "dxDataGrid-ariaSelectAll": "Выбрать всё",
             "dxDataGrid-ariaSelectRow": "Выбрать строку",
-            "dxDataGrid-filterBuilderPopupTitle": "Конструктор фильтра",
-            "dxDataGrid-filterPanelCreateFilter": "Создать фильтр",
-            "dxDataGrid-filterPanelClearFilter": "Очистить",
-            "dxDataGrid-filterPanelFilterEnabledHint": "Активировать фильтр",
             "dxTreeList-ariaTreeList": "Иерархическая таблица данных",
             "dxTreeList-editingAddRowToNode": "Добавить",
             "dxPager-infoText": "Страница {0} из {1} (Всего элементов: {2})",
@@ -200,7 +193,7 @@
             "dxScheduler-recurrenceYearly": "Ежегодно",
             "dxScheduler-recurrenceEvery": "Интервал",
             "dxScheduler-recurrenceEnd": "Завершить повторение",
-            "dxScheduler-recurrenceAfter": "После",
+            "dxScheduler-recurrenceAfter": "Количество повторений",
             "dxScheduler-recurrenceOn": "Повторять до",
             "dxScheduler-recurrenceRepeatDaily": "дней(дня)",
             "dxScheduler-recurrenceRepeatWeekly": "недели(недель)",
@@ -257,23 +250,7 @@
             "dxFilterBuilder-filterOperationNotContains": "Не содержит",
             "dxFilterBuilder-filterOperationEndsWith": "Заканчивается на",
             "dxFilterBuilder-filterOperationIsBlank": "Пусто",
-            "dxFilterBuilder-filterOperationIsNotBlank": "Не пусто",
-            "dxFilterBuilder-filterOperationBetween": "В диапазоне",
-            "dxFilterBuilder-filterOperationAnyOf": "Любой из",
-            "dxFilterBuilder-filterOperationNoneOf": "Ни один из",
-            "dxHtmlEditor-dialogColorCaption": "Изменить цвет текста",
-            "dxHtmlEditor-dialogBackgroundCaption": "Изменить цвет фона",
-            "dxHtmlEditor-dialogLinkCaption": "Добавить ссылку",
-            "dxHtmlEditor-dialogLinkUrlField": "URL",
-            "dxHtmlEditor-dialogLinkTextField": "Текст",
-            "dxHtmlEditor-dialogLinkTargetField": "Открыть в новом окне",
-            "dxHtmlEditor-dialogImageCaption": "Добавить изображение",
-            "dxHtmlEditor-dialogImageUrlField": "URL",
-            "dxHtmlEditor-dialogImageAltField": "Альтернативный текст",
-            "dxHtmlEditor-dialogImageWidthField": "Ширина (px)",
-            "dxHtmlEditor-dialogImageHeightField": "Высота (px)",
-            "dxHtmlEditor-heading": "Заголовок",
-            "dxHtmlEditor-normalText": "Обычный текст"
+            "dxFilterBuilder-filterOperationIsNotBlank": "Не пусто"
         }
     })
 });

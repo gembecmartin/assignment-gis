@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.en.js)
-* Version: 18.2.3
-* Build date: Wed Nov 07 2018
+* Version: 17.2.11
+* Build date: Fri Oct 26 2018
 *
 * Copyright (c) 2012 - 2018 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -78,13 +78,10 @@
             "dxFileUploader-uploaded": "Uploaded",
             "dxFileUploader-readyToUpload": "Ready to upload",
             "dxFileUploader-uploadFailedMessage": "Upload failed",
-            "dxFileUploader-invalidFileExtension": "File type is not allowed",
-            "dxFileUploader-invalidMaxFileSize": "File is too large",
-            "dxFileUploader-invalidMinFileSize": "File is too small",
             "dxRangeSlider-ariaFrom": "From",
             "dxRangeSlider-ariaTill": "Till",
-            "dxSwitch-switchedOnText": "ON",
-            "dxSwitch-switchedOffText": "OFF",
+            "dxSwitch-onText": "ON",
+            "dxSwitch-offText": "OFF",
             "dxForm-optionalMark": "optional",
             "dxForm-requiredMessage": "{0} is required",
             "dxNumberBox-invalidValueMessage": "Value must be a number",
@@ -160,10 +157,6 @@
             "dxDataGrid-ariaSearchInGrid": "Search in data grid",
             "dxDataGrid-ariaSelectAll": "Select all",
             "dxDataGrid-ariaSelectRow": "Select row",
-            "dxDataGrid-filterBuilderPopupTitle": "Filter Builder",
-            "dxDataGrid-filterPanelCreateFilter": "Create Filter",
-            "dxDataGrid-filterPanelClearFilter": "Clear",
-            "dxDataGrid-filterPanelFilterEnabledHint": "Enable the filter",
             "dxTreeList-ariaTreeList": "Tree list",
             "dxTreeList-editingAddRowToNode": "Add",
             "dxPager-infoText": "Page {0} of {1} ({2} items)",
@@ -248,32 +241,16 @@
             "dxFilterBuilder-enterValueText": "<enter a value>",
             "dxFilterBuilder-filterOperationEquals": "Equals",
             "dxFilterBuilder-filterOperationNotEquals": "Does not equal",
-            "dxFilterBuilder-filterOperationLess": "Is less than",
-            "dxFilterBuilder-filterOperationLessOrEquals": "Is less than or equal to",
-            "dxFilterBuilder-filterOperationGreater": "Is greater than",
-            "dxFilterBuilder-filterOperationGreaterOrEquals": "Is greater than or equal to",
+            "dxFilterBuilder-filterOperationLess": "Less than",
+            "dxFilterBuilder-filterOperationLessOrEquals": "Less than or equal to",
+            "dxFilterBuilder-filterOperationGreater": "Greater than",
+            "dxFilterBuilder-filterOperationGreaterOrEquals": "Greater than or equal to",
             "dxFilterBuilder-filterOperationStartsWith": "Starts with",
             "dxFilterBuilder-filterOperationContains": "Contains",
             "dxFilterBuilder-filterOperationNotContains": "Does not contain",
             "dxFilterBuilder-filterOperationEndsWith": "Ends with",
             "dxFilterBuilder-filterOperationIsBlank": "Is blank",
-            "dxFilterBuilder-filterOperationIsNotBlank": "Is not blank",
-            "dxFilterBuilder-filterOperationBetween": "Is between",
-            "dxFilterBuilder-filterOperationAnyOf": "Is any of",
-            "dxFilterBuilder-filterOperationNoneOf": "Is none of",
-            "dxHtmlEditor-dialogColorCaption": "Change Font Color",
-            "dxHtmlEditor-dialogBackgroundCaption": "Change Background Color",
-            "dxHtmlEditor-dialogLinkCaption": "Add Link",
-            "dxHtmlEditor-dialogLinkUrlField": "URL",
-            "dxHtmlEditor-dialogLinkTextField": "Text",
-            "dxHtmlEditor-dialogLinkTargetField": "Open link in new window",
-            "dxHtmlEditor-dialogImageCaption": "Add Image",
-            "dxHtmlEditor-dialogImageUrlField": "URL",
-            "dxHtmlEditor-dialogImageAltField": "Alternate text",
-            "dxHtmlEditor-dialogImageWidthField": "Width (px)",
-            "dxHtmlEditor-dialogImageHeightField": "Height (px)",
-            "dxHtmlEditor-heading": "Heading",
-            "dxHtmlEditor-normalText": "Normal text"
+            "dxFilterBuilder-filterOperationIsNotBlank": "Is not blank"
         }
     })
 });

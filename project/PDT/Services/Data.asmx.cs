@@ -19,23 +19,23 @@ namespace PDT.Services
     {
 
         [WebMethod(EnableSession = true)]
-        public string GetDepos()
+        public string GetMotorway()
         {
-            var data = new SqlController().GetData();
+            var data = new SqlController().GetMotorway();
             return data;
         }
 
         [WebMethod(EnableSession = true)]
-        public string GetAeroStations()
+        public string GetRangeFromFiit(int range)
         {
-            var data = new SqlController().GetRangeFromFiit();
+            var data = new SqlController().GetRangeFromFiit(range);
             return data;
         }
 
         [WebMethod(EnableSession = true)]
-        public object GetSomething(string village)
+        public object GetVillage(string village)
         {
-            var data = new SqlController().GetSomething(village);
+            var data = new SqlController().GetVillage(village);
             return data;
         }
     }

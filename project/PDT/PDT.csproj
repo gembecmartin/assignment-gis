@@ -207,16 +207,6 @@
     <Content Include="Content\dx.ios7.default.css" />
     <Content Include="Content\dx.light.compact.css" />
     <Content Include="Content\dx.light.css" />
-    <Content Include="Content\dx.material.blue.dark.css" />
-    <Content Include="Content\dx.material.blue.light.css" />
-    <Content Include="Content\dx.material.lime.dark.css" />
-    <Content Include="Content\dx.material.lime.light.css" />
-    <Content Include="Content\dx.material.orange.dark.css" />
-    <Content Include="Content\dx.material.orange.light.css" />
-    <Content Include="Content\dx.material.purple.dark.css" />
-    <Content Include="Content\dx.material.purple.light.css" />
-    <Content Include="Content\dx.material.teal.dark.css" />
-    <Content Include="Content\dx.material.teal.light.css" />
     <Content Include="Content\dx.softblue.compact.css" />
     <Content Include="Content\dx.softblue.css" />
     <Content Include="Content\dx.spa.css" />
@@ -283,27 +273,10 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\icons\dxiconsmaterial.woff2" />
-    <Content Include="Content\icons\dxiconsmaterial.woff" />
-    <Content Include="Content\icons\dxiconsmaterial.ttf" />
-    <Content Include="Content\icons\dxiconsios.woff2" />
     <Content Include="Content\icons\dxiconsios.woff" />
     <Content Include="Content\icons\dxiconsios.ttf" />
-    <Content Include="Content\icons\dxicons.woff2" />
     <Content Include="Content\icons\dxicons.woff" />
     <Content Include="Content\icons\dxicons.ttf" />
-    <Content Include="Content\fonts\Roboto-700.woff2" />
-    <Content Include="Content\fonts\Roboto-700.woff" />
-    <Content Include="Content\fonts\Roboto-700.ttf" />
-    <Content Include="Content\fonts\Roboto-500.woff2" />
-    <Content Include="Content\fonts\Roboto-500.woff" />
-    <Content Include="Content\fonts\Roboto-500.ttf" />
-    <Content Include="Content\fonts\Roboto-400.woff2" />
-    <Content Include="Content\fonts\Roboto-400.woff" />
-    <Content Include="Content\fonts\Roboto-400.ttf" />
-    <Content Include="Content\fonts\Roboto-300.woff2" />
-    <Content Include="Content\fonts\Roboto-300.woff" />
-    <Content Include="Content\fonts\Roboto-300.ttf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
@@ -313,6 +286,9 @@
     <Content Include="Scripts\devextreme-localization\dx.messages.en.js" />
     <Content Include="Scripts\devextreme-localization\dx.messages.ja.js" />
     <Content Include="Scripts\devextreme-localization\dx.messages.ru.js" />
+    <Content Include="Scripts\devextreme-localization\dx.web.de.js" />
+    <Content Include="Scripts\devextreme-localization\dx.web.ja.js" />
+    <Content Include="Scripts\devextreme-localization\dx.web.ru.js" />
     <Content Include="Scripts\dx.aspnet.mvc.js" />
     <Content Include="Scripts\dx.viz-web.debug.js" />
     <Content Include="Scripts\dx.viz-web.js" />
