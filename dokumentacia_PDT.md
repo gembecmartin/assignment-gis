@@ -1,4 +1,5 @@
 # PDT projekt
+Martin Gembec
 
 Výsledkom tohto projektu je webová aplikácia. Táto webová aplikácia je určená pre vyhľadávanie miest a obcí na mape podľa názvu obce zadaného používateľom. Taktiež je možné zvýrazniť okresy, ktoré pretína diaľnica. A nakoniec je k dispozícií vyhľadávač kaviarní a reštaurácií, kde si môžu študenti FIIT po dni v škole odskočiť na občerstvenie. 
 
