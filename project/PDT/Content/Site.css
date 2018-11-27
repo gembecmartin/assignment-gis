@@ -1,0 +1,74 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#controlPanel {
+    width: 650px;
+    height: 90px;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    background-image: linear-gradient(white, grey);
+    margin: 0 auto;
+    border-radius: 15px;
+}
+
+#control2{
+    margin: 0 30px;
+    z-index: 15;
+    width: 150px;
+    height: 25px;
+}
+
+#radiusPicker {
+    margin: 0 30px;
+}
+
+#control1 {
+    margin: 0 30px;
+    z-index: 15;
+    width: 120px;
+    height: 25px;
+}
+
+.mapboxgl-marker {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    background-color: lightblue;
+}
+
+#mainMarker {
+    border: 1px solid orange;
+    background-color: red;
+}
