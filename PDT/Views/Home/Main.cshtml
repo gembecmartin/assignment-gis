@@ -1,0 +1,265 @@
+﻿
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+@Styles.Render("~/Content/css")
+
+<div id='map'></div>
+
+<div id="controlPanel">
+    <div style="display: inline-block; margin: 10px 0 10px 20px;">
+        <div id="textArea"></div>
+        <button id="control3" onclick="control3Clicked()">Find Village</button>
+    </div>
+    <button id="control1" style="display: inline-block" onclick="control1Clicked()">Find motorway</button>
+    <button id="control2" style="display: inline-block" onclick="control2Clicked()">Find drinks near FIIT</button>
+
+</div>
+
+<script>
+    var villageName = "";
+    var markers = [];
+
+    mapboxgl.accessToken = 'pk.eyJ1Ijoid2hpdGV0aWdlciIsImEiOiJjam9oZWRraHQwbXdsM3BtdWRmbTZkcHZlIn0.IEoQNBskoauIuAqjSRDqmg';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/outdoors-v9',
+        center: [19.6, 48.618261],
+        zoom: 7.5
+    });
+
+    $(function () {
+        $("#textArea").dxTextBox({
+            placeholder: "Enter name of village here...",
+            onValueChanged: function (e) {
+                villageName = e.value;
+            }
+        });
+
+        $("#controlPanel").draggable();
+    });
+
+    function clearMap() {
+        markers.forEach(function (marker) {
+            marker.remove();
+        });
+
+        if (map.getLayer('villagePolygon') != null)
+            map.removeLayer('villagePolygon');
+
+        if (map.getSource('villages') != null) {
+            map.removeSource('villages')
+        }
+
+        if (map.getLayer('roads') != null)
+            map.removeLayer('roads');
+
+        if (map.getSource('roadLines') != null) {
+            map.removeSource('roadLines')
+        }
+    }
+
+    function control1Clicked() {
+        clearMap();
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:61756/Services/Data.asmx/GetDepos",
+            contentType: "application/json; charset=utf-8;",
+            traditional: true,
+            dataType: "json",
+            success: function (msg) {
+                loadRoadVillages(JSON.parse(msg.d));
+            },
+            error: function (request, status, error) {
+                console.log("Error by obtaining data routes from server: " + error);
+                return null;
+            }
+        });
+    }
+
+    function control2Clicked() {
+        clearMap();
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:61756/Services/Data.asmx/GetAeroStations",
+            contentType: "application/json; charset=utf-8;",
+            traditional: true,
+            dataType: "json",
+            success: function (msg) {
+                loadRangeFromFIIT(JSON.parse(msg.d));
+            },
+            error: function (request, status, error) {
+                console.log("Error by obtaining data routes from server: " + error);
+                return null;
+            }
+        });
+    }
+
+    function control3Clicked() {
+        clearMap();
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:61756/Services/Data.asmx/GetSomething",
+            contentType: "application/json; charset=utf-8;",
+            traditional: true,
+            dataType: "json",
+            data: JSON.stringify({
+                village: villageName
+            }),
+            success: function (msg) {
+                if(msg.d != null)
+                    loadVillages(msg.d);
+                else
+                    alert("Error occured while loading your desired village!");
+            },
+            error: function (request, status, error) {
+                console.log("Error by obtaining data routes from server: " + error);
+                return null;
+            }
+        });
+    }
+
+    /*-------------------------------------------------------------------------------------------*/
+
+    function loadRangeFromFIIT(data) {
+        var geojson = [];
+
+        for (var i = 0; i < data.Features.length; i++) {
+            var popup = new mapboxgl.Popup({ offset: 10 })
+                .setText(data.Features[i].Properties.Name);
+
+            var el = document.createElement('div');
+            if (data.Features[i].Properties.Center) {
+                map.flyTo({
+                    center: data.Features[i].Geometry.Coordinates,
+                    zoom: 14,
+                });
+                
+                el.id = 'mainMarker';
+            }
+            else {
+                el.id = 'marker' + i;
+            }
+
+            markers.push(new mapboxgl.Marker(el)
+                .setLngLat(data.Features[i].Geometry.Coordinates)
+                .setPopup(popup)
+                .addTo(map)
+            )  
+        }
+    }
+
+    function loadVillages(d) {
+        var geojson = [];
+        var villageData = JSON.parse(d.data);
+
+        if (villageData.Features.length > 0) {
+            for (var i = 0; i < villageData.Features.length; i++) {
+                if (villageData.Features[i].Geometry.Type == 'Point') {
+                    var popup = new mapboxgl.Popup({ offset: 25 })
+                        .setText('Area (in square metres): ' + d.area);
+
+                    var el = document.createElement('div');
+                    el.id = 'marker' + i;
+
+                    markers.push(new mapboxgl.Marker(el)
+                        .setLngLat(villageData.Features[i].Geometry.Coordinates)
+                        .setPopup(popup)
+                        .addTo(map)
+                    )
+
+                    map.flyTo({
+                        center: villageData.Features[i].Geometry.Coordinates,
+                        zoom: 10,
+                    });
+                }
+                else {
+                    geojson.push({
+                        'type': 'Feature',
+                        'geometry': villageData.Features[i].Geometry
+                    });
+                }
+            }
+
+            map.addSource('villages', {
+                "type": "geojson",
+                "data": {
+                    "type": "FeatureCollection",
+                    "features": geojson
+                }
+            });
+
+            map.addLayer({
+                'id': 'villagePolygon',
+                'type': 'fill',
+                'source': 'villages',
+                'layout': {},
+                'paint': {
+                    'fill-color': '#088',
+                    'fill-opacity': 0.8
+                }
+            });
+        }
+        else
+            alert("Cannot find village!");
+    }
+
+    function loadRoadVillages(data) {
+        map.flyTo({
+            center: [19.772948, 48.831661],
+            zoom: 7,
+        });
+
+        geojson = [];
+        roadGeojson = [];
+        for (var i = 0; i < data.Features.length; i++) {
+            if (data.Features[i].Geometry.type == "MultiLineString")
+                roadGeojson.push({
+                    'type': 'Feature',
+                    'geometry': data.Features[i].Geometry
+                });
+            else
+                geojson.push({
+                    'type': 'Feature',
+                    'geometry': data.Features[i].Geometry
+                });
+        }
+
+        map.addSource('villages', {
+            "type": "geojson",
+            "data": {
+                "type": "FeatureCollection",
+                "features": geojson
+            }
+        });
+
+        map.addSource('roadLines', {
+            "type": "geojson",
+            "data": {
+                "type": "FeatureCollection",
+                "features": roadGeojson
+            }
+        });
+
+        map.addLayer({
+            'id': 'villagePolygon',
+            'type': 'fill',
+            'source': 'villages',
+            'layout': {},
+            'paint': {
+                'fill-color': '#088',
+                'fill-opacity': 0.8
+            },
+            "filter": ["==", "$type", "Polygon"]
+        });
+
+        map.addLayer({
+            'id': "roads",
+            'type': "line",
+            'source': 'roadLines'
+            
+        })
+    }
+</script>
