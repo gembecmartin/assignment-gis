@@ -22,6 +22,6 @@ Fill in (either in English, or in Slovak):
 
 **Application description**: `<fill in>`
 
-**Data source**: `<fill in>`
+**Data source**: Slovakia
 
-**Technologies used**: `<fill in>`
+**Technologies used**: ASP.NET, C#, JavaScript, PostgreSQL, PostGIS, Mapbox
